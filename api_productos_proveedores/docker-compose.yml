@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:17-alpine
+    container_name: postgres_db_productos
+    environment:
+      POSTGRES_DB: db_productos_proveedores
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "*Alfa2026"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ../documentacion/script_db_productos.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d db_productos_proveedores"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api-app:
+    build: .
+    container_name: api_productos_proveedores
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/db_productos_proveedores
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD="*Alfa2026"
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

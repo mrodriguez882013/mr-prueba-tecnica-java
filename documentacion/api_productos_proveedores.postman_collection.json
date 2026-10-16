@@ -1,0 +1,190 @@
+{
+  "info": {
+    "name": "API Productos y Proveedores (Enterprise)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Proveedores",
+      "item": [
+        {
+          "name": "1. Guardar Proveedor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tecnología Global S.A.\",\n  \"numeroTelefono\": \"555-1234\",\n  \"correoElectronico\": \"contacto@tecnologiaglobal.com\",\n  \"direccion\": \"Av. Principal #123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/proveedores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "proveedores"]
+            }
+          }
+        },
+        {
+          "name": "2. Listar Proveedores Paginados",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/proveedores?page=0&size=10&sort=id,desc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "proveedores"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" },
+                { "key": "sort", "value": "id,desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "3. Buscar Proveedor por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/proveedores/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "proveedores", "1"]
+            }
+          }
+        },
+        {
+          "name": "4. Actualizar Proveedor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tecnología Global Actualizada\",\n  \"numeroTelefono\": \"555-9876\",\n  \"correoElectronico\": \"soporte@tecnologiaglobal.com\",\n  \"direccion\": \"Calle Secundaria #456\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/proveedores/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "proveedores", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "item": [
+        {
+          "name": "1. Guardar Producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Laptop Pro 15\",\n  \"descripcion\": \"Laptop de alto rendimiento con 16GB RAM\",\n  \"precio\": 1200.50,\n  \"existencias\": 15,\n  \"fotografia\": \"laptop_pro15.jpg\",\n  \"proveedorId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/productos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos"]
+            }
+          }
+        },
+        {
+          "name": "2. Listar Productos Paginados",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos?page=0&size=10&sort=id,desc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" },
+                { "key": "sort", "value": "id,desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "3. Buscar Producto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos", "1"]
+            }
+          }
+        },
+        {
+          "name": "4. Actualizar Producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Laptop Pro 15 - Actualizada\",\n  \"descripcion\": \"Laptop de alto rendimiento con 32GB RAM\",\n  \"precio\": 1350.00,\n  \"existencias\": 10,\n  \"fotografia\": \"laptop_pro15_v2.jpg\",\n  \"proveedorId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/productos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos", "1"]
+            }
+          }
+        },
+        {
+          "name": "5. Eliminar Producto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/productos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "productos", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
