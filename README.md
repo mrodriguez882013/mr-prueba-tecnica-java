@@ -96,6 +96,16 @@ Una vez que la aplicación esté ejecutándose, puedes acceder a la interfaz gr�
     *   `DELETE /api/productos/{id}` - Eliminar un producto del sistema.
 	
 
+## 📂 Documentación adicional
+
+En la carpeta [`documentacion/`](documentacion/) encontrarás:
+
+*   `Prueba Tecnica-Avanzada.pdf`: enunciado de la prueba técnica.
+*   `script_db_productos.sql`: script de la base de datos (tablas y datos de ejemplo).
+*   `api_productos_proveedores.postman_collection.json`: colección de Postman para probar todos los endpoints (importar desde Postman con *File → Import*).
+*   `docker-comandos.txt`: comandos para ejecutar el proyecto con Docker.
+*   `spring initializer.png`: captura de la configuración usada en Spring Initializr.
+
 ## 👤 Autor
 
 **Ing.Miguel Antonio Rodríguez Guevara**
